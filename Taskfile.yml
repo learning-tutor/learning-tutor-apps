@@ -1,0 +1,45 @@
+version: '3'
+
+tasks:
+  clone:
+    desc: "Clone all repositories"
+    cmds:
+      - git clone https://github.com/lpazzim/learning-tutor frontend/react-app1
+      - git clone https://github.com/danillotorresdev/learning-test1 frontend/react-app2
+ 
+  install:
+    desc: "Install all dependencies for all applications"
+    cmds:
+      - task install:react-app1
+      - task install:react-app2
+
+  install:react-app1:
+    desc: "Instala dependências para react-app1"
+    cmds:
+      - cd frontend/react-app1 && pnpm install
+
+  install:react-app2:
+    desc: "Instala dependências para react-app2"
+    cmds:
+      - cd frontend/react-app2 && pnpm install
+  build:
+      desc: "Gera builds para todos os aplicativos"
+      cmds:
+        - task build:react-app1
+        - task build:react-app2
+
+  build:react-app1:
+      desc: "Gera build para react-app1"
+      cmds:
+        - cd frontend/react-app1 && pnpm install && pnpm run build
+
+  build:react-app2:
+      desc: "Gera build para react-app2"
+      cmds:
+        - cd frontend/react-app2 && pnpm install && pnpm run build
+
+  docker:
+      desc: "Sobe os containers Docker para todos os aplicativos"
+      cmds:
+        - docker-compose up
+
