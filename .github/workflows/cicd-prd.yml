@@ -19,7 +19,7 @@ on:
       - husky/**
       - .vscode/**
       - .docs/**
-  workflow_dispatch:
+  # workflow_dispatch:
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18.
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -40,17 +40,6 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
       
-      # - name: Lint & Prettier check
-      #   run: pnpm check-lint-prettier # TODO: create this script in package.json
-
-      # - name: Run Tests
-        # run: pnpm test # setting test script in package.json
-
-      # - name: Type Check
-        # run: pnpm run type-check # setting type-check script in package.json
-      
-      - name: Build
-        run: pnpm run build
   deploy_and_publish_release:
     needs: build
     runs-on: ubuntu-latest
