@@ -22,12 +22,8 @@ on:
   # workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
   deploy_and_publish_release:
-    needs: build
     runs-on: ubuntu-latest
- 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
