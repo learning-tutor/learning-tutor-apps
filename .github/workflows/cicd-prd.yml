@@ -22,11 +22,28 @@ on:
   # workflow_dispatch:
 
 jobs:
-  deploy_and_publish_release:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install Dependencies
+        run: pnpm install
+      
+  deploy_and_publish_release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Publish release
         if: github.event_name == 'push' && github.event_name == 'workflow_dispatch'
         run: pnpm run semantic-release
