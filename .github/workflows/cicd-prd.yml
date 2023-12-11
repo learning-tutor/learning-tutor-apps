@@ -39,11 +39,10 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
-      
-       - name: Publish release
+
+      - name: Publish release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: pnpm run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-     
+  
