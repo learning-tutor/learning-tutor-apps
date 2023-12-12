@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/danillotorresdev/learning-tutor-apps/compare/v1.0.1...v1.1.0) (2023-12-12)
+
+
+### Features
+
+* **test component:** test componetn ([f27879c](https://github.com/danillotorresdev/learning-tutor-apps/commit/f27879c2998d1376d6915dcf8dc496ee803830e1))
+
 ## [1.0.1](https://github.com/danillotorresdev/learning-tutor-apps/compare/v1.0.0...v1.0.1) (2023-12-12)
 
 # 1.0.0 (2023-12-12)
