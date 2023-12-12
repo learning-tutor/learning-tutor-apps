@@ -1,6 +1,9 @@
 # Project Dependency Management
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 This document outlines the steps to manage dependencies for multiple projects using a task-based approach.
+
 
 ## Installation
 
@@ -30,3 +33,4 @@ task install
 ```bash
 task docker
 ```
+
