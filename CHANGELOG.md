@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/danillotorresdev/learning-tutor-apps/compare/v1.1.0...v1.2.0) (2023-12-12)
+
+
+### Features
+
+* **remove component:** remove component ([2af8fb3](https://github.com/danillotorresdev/learning-tutor-apps/commit/2af8fb32840a9b8c437a32fe4079b6f122b5b3b8))
+
 # [1.1.0](https://github.com/danillotorresdev/learning-tutor-apps/compare/v1.0.1...v1.1.0) (2023-12-12)
 
 
