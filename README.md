@@ -4,7 +4,6 @@
 
 This document outlines the steps to manage dependencies for multiple projects using a task-based approach.
 
-
 ## Installation
 
 [Task](https://taskfile.dev/installation/)
