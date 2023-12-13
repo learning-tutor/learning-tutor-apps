@@ -1,8 +1,8 @@
 version: '3.8'
 services:
-  react-app1:
+  learning-tutor:
     build:
-      context: ./frontend/react-app1 
+      context: ./frontend/learning-tutor 
       dockerfile: Dockerfile 
     stdin_open: true
     ports:
@@ -10,19 +10,7 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     volumes:
-      - "./frontend/react-app1:/app"
-      - "/app/node_modules"
-  react-app2:
-    build:
-      context: ./frontend/react-app2 
-      dockerfile: Dockerfile 
-    stdin_open: true
-    ports:
-      - "5174:5174"
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    volumes:
-      - "./frontend/react-app2:/app"
+      - "./frontend/learning-tutor:/app"
       - "/app/node_modules"
 
 
