@@ -27,17 +27,11 @@ jobs:
     concurrency: release
 
     steps:
-    #  - name: Generate token
-    #     id: generate_token
-    #     uses: tibdex/github-app-token@v1
-    #     with:
-    #       app_id: ${{ secrets.MYBOT_APP_ID }}
-    #       private_key: ${{ secrets.MYBOT_PRIVATE_KEY }}
-
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+          with:
+            fetch-depth: 0
+            persist-credentials: false
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -52,7 +46,8 @@ jobs:
 
       - name: Publish release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: pnpm run semantic-release
+        run: pnpm dlx semantic-release --ci
         env:
-          GITHUB_TOKEN: ${{ secrets.DEPENDABOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GIT_CREDENTIALS }}]
+
   
