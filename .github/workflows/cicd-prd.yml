@@ -24,18 +24,12 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
-
+  
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-          persist-credentials: false
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -50,4 +44,5 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: pnpm dlx semantic-release --ci
         env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

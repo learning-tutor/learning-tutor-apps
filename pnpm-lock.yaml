@@ -17,6 +17,9 @@ devDependencies:
   '@semantic-release/git':
     specifier: ^10.0.1
     version: 10.0.1(semantic-release@22.0.12)
+  '@semantic-release/npm':
+    specifier: ^11.0.2
+    version: 11.0.2(semantic-release@22.0.12)
   commitizen:
     specifier: ^4.3.0
     version: 4.3.0(typescript@5.3.3)
