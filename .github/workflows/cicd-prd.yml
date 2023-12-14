@@ -20,29 +20,41 @@ on:
       - .vscode/**
       - .docs/**
   # workflow_dispatch:
+permissions:
+  contents: read # for checkout
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
   
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+          persist-credentials: false
+        with:
+          token: ${{ secrets.GHA_TOKEN }}
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
-          node-version: 18.
+          node-version: "lts/*"
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install Dependencies
         run: pnpm install
+      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+        run: pnpm audit
 
       - name: Publish release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: pnpm dlx semantic-release --ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: pnpm dlx semantic-release
