@@ -47,9 +47,9 @@ jobs:
 
       - name: Publish release
         id: semantic
-        uses: cycjimmy/semantic-release-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
           branch: master
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: pnpm semantic-release
+        uses: cycjimmy/semantic-release-action@v3
+        # run: pnpm semantic-release
