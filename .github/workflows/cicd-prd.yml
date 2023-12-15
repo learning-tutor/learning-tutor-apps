@@ -21,7 +21,8 @@ on:
       - .vscode/**
       - .docs/**
   # workflow_dispatch:
-
+env:
+  GITHUB_TOKEN: ${{ secrets.BOT_ACCESS_TOKEN }}
 jobs:
   release:
     runs-on: ubuntu-latest
