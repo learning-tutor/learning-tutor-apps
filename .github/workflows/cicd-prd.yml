@@ -25,8 +25,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-      with:
-        persist-credentials: false
+    with:
+      persist-credentials: false
     steps:
       - name: Checkout
         uses: actions/checkout@v3
