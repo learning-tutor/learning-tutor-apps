@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/learning-tutor/learning-tutor-apps/compare/v1.2.1...v1.2.2) (2023-12-15)
+
+
+### Bug Fixes
+
+* **release:** fix release issue ([2fe5cd7](https://github.com/learning-tutor/learning-tutor-apps/commit/2fe5cd7600cc8574e6e4b790f86feadb3003086d))
+
 ## [1.2.1](https://github.com/danillotorresdev/learning-tutor-apps/compare/v1.2.0...v1.2.1) (2023-12-13)
 
 # [1.2.0](https://github.com/danillotorresdev/learning-tutor-apps/compare/v1.1.0...v1.2.0) (2023-12-12)
