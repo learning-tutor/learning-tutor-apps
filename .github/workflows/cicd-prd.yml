@@ -22,12 +22,11 @@ on:
       - .docs/**
   # workflow_dispatch:
 
-
 jobs:
   release:
     runs-on: ubuntu-latest
       with:
-          persist-credentials: false
+        persist-credentials: false
     steps:
       - name: Checkout
         uses: actions/checkout@v3
