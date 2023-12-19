@@ -4,7 +4,7 @@ tasks:
   clone:
     desc: "Clone all repositories"
     cmds:
-      - git clone https://github.com/lpazzim/learning-tutor frontend/learning-tutor
+      - git clone https://github.com/learning-tutor/learning-tutor frontend/learning-tutor
  
   install:
     desc: "Install all dependencies for all applications"
